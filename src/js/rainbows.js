@@ -39,13 +39,13 @@ appDiv.appendChild(myUL)
 document.getElementById("myUL").innerHTML = localStorage.getItem("storedList")
 
 // Define list storing function
-var storeList = () => {
+const storeList = () => {
   localStorage.setItem("storedList", document.getElementById("myUL").innerHTML)
 }
 
 // Activate close buttons that remove list items
-var activateCloseButtons = () => {
-  let close = document.getElementsByClassName("close")
+const activateCloseButtons = () => {
+  const close = document.getElementsByClassName("close")
   for (let element of close) {
     element.onclick = function() {
       let div = this.parentElement
@@ -56,20 +56,11 @@ var activateCloseButtons = () => {
 }
 activateCloseButtons()
 
-// Add a "checked" symbol when clicking on a list item
-let list = document.querySelector('ul')
-list.addEventListener('click', (ev) => {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked')
-    storeList()
-  }
-}, false)
-
 // Create a new list item when clicking on the "Add" button
 function addListItem() {
   let li = document.createElement("li")
-  let inputValue = document.getElementById("myInput").value
-  let t = document.createTextNode(inputValue)
+  const inputValue = document.getElementById("myInput").value
+  const t = document.createTextNode(inputValue)
 
   if (inputValue === '') {
     alert("You must write something!")
@@ -78,7 +69,7 @@ function addListItem() {
     li.appendChild(t)
     //add close button to li
     let span = document.createElement("SPAN")
-    let txt = document.createTextNode("\u00D7")
+    const txt = document.createTextNode("\u00D7")
     span.className = "close"
     span.appendChild(txt)
     li.appendChild(span)
@@ -91,11 +82,20 @@ function addListItem() {
   storeList()
 }
 
+// Add a "checked" symbol when clicking on a list item
+const list = document.querySelector('ul')
+list.addEventListener('click', (ev) => {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked')
+    storeList()
+  }
+}, false)
+
 // Click the "Add" button when Enter key is pressed
-document.getElementById('myInput')
-    .addEventListener("keyup", (ev) => {
-    ev.preventDefault()
-    if (event.keyCode === 13) {
-        document.getElementById("addBtn").click();
-    }
+const input = document.getElementById('myInput')
+  input.addEventListener("keyup", (ev) => {
+  ev.preventDefault()
+  if (event.keyCode === 13) {
+      document.getElementById("addBtn").click();
+  }
 })
