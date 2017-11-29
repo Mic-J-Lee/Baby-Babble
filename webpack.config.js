@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: './src/app.js',
@@ -28,6 +29,16 @@ module.exports = {
     ]
   },
   plugins: [
+    // for minification of bundle.js
+    new UglifyJSPlugin({
+      sourceMap: true,
+      uglifyOptions: {
+        output: {
+          ascii_only: true
+        }
+      }
+    }),
     new ExtractTextPlugin('style.css')
   ]
 };
+
