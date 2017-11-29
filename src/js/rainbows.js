@@ -16,8 +16,9 @@ myDivInput.setAttribute('id', 'myInput')
 myDivInput.setAttribute('placeholder', 'Title...')
 
 let myDivSpan = document.createElement('span')
+myDivSpan.setAttribute('id', 'addBtn')
 myDivSpan.className = "addBtn"
-myDivSpan.addEventListener('click', newElement)
+myDivSpan.addEventListener('click', addListItem)
 myDivSpan.innerHTML = "Add"
 
 
@@ -42,8 +43,8 @@ var storeList = () => {
   localStorage.setItem("storedList", document.getElementById("myUL").innerHTML)
 }
 
-// Activate close buttons
-var clickToClose = () => {
+// Activate close buttons that remove list items
+var activateCloseButtons = () => {
   let close = document.getElementsByClassName("close")
   for (let element of close) {
     element.onclick = function() {
@@ -53,7 +54,7 @@ var clickToClose = () => {
     }
   }
 }
-clickToClose()
+activateCloseButtons()
 
 // Add a "checked" symbol when clicking on a list item
 let list = document.querySelector('ul')
@@ -65,7 +66,7 @@ list.addEventListener('click', (ev) => {
 }, false)
 
 // Create a new list item when clicking on the "Add" button
-function newElement() {
+function addListItem() {
   let li = document.createElement("li")
   let inputValue = document.getElementById("myInput").value
   let t = document.createTextNode(inputValue)
@@ -86,6 +87,15 @@ function newElement() {
   }
   document.getElementById("myInput").value = ""
 
-  clickToClose()
+  activateCloseButtons()
   storeList()
 }
+
+// Click the "Add" button when Enter key is pressed
+document.getElementById('myInput')
+    .addEventListener("keyup", (ev) => {
+    ev.preventDefault()
+    if (event.keyCode === 13) {
+        document.getElementById("addBtn").click();
+    }
+})
