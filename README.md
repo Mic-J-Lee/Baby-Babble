@@ -1,2 +1,4 @@
 # Baby-Babble
-Add babel to webpack
+Added babel to webpack
+
+Created a not too interesting to-do list

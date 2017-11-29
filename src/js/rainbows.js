@@ -6,7 +6,7 @@ let myDiv = document.createElement('div')
 myDiv.className = "header"
 myDiv.setAttribute('id', 'myDiv')
 
-let myDivH2 = document.createElement('h2')
+let myDivH2 = document.createElement('h1')
 myDivH2.style.margin = "5px"
 myDivH2.innerHTML = "My To Do List"
 
@@ -42,7 +42,7 @@ var storeList = () => {
   localStorage.setItem("storedList", document.getElementById("myUL").innerHTML)
 }
 
-// Create a function that removes a list item when its close button is clicked
+// Activate close buttons
 var clickToClose = () => {
   let close = document.getElementsByClassName("close")
   for (let element of close) {
@@ -73,15 +73,15 @@ function newElement() {
   if (inputValue === '') {
     alert("You must write something!")
   } else {
-    //add text
+    //add text to li
     li.appendChild(t)
-    //add close button
+    //add close button to li
     let span = document.createElement("SPAN")
     let txt = document.createTextNode("\u00D7")
     span.className = "close"
     span.appendChild(txt)
     li.appendChild(span)
-    //add item to list
+    //add li to ul
     document.getElementById("myUL").appendChild(li)
   }
   document.getElementById("myInput").value = ""
