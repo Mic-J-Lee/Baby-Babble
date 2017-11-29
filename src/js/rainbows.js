@@ -42,18 +42,6 @@ var storeList = () => {
   localStorage.setItem("storedList", document.getElementById("myUL").innerHTML)
 }
 
-// Create a function that appends a "close" button to a list item
-var addCloseButton = () => {
-  let myNodelist = document.getElementsByTagName("LI")
-  for (let element of myNodelist) {
-    let span = document.createElement("SPAN")
-    let txt = document.createTextNode("\u00D7")
-    span.className = "close"
-    span.appendChild(txt)
-    element.appendChild(span)
-  }
-}
-
 // Create a function that removes a list item when its close button is clicked
 var clickToClose = () => {
   let close = document.getElementsByClassName("close")
@@ -85,12 +73,19 @@ function newElement() {
   if (inputValue === '') {
     alert("You must write something!")
   } else {
+    //add text
     li.appendChild(t)
+    //add close button
+    let span = document.createElement("SPAN")
+    let txt = document.createTextNode("\u00D7")
+    span.className = "close"
+    span.appendChild(txt)
+    li.appendChild(span)
+    //add item to list
     document.getElementById("myUL").appendChild(li)
   }
   document.getElementById("myInput").value = ""
 
-  addCloseButton()
   clickToClose()
   storeList()
 }
