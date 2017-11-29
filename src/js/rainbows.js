@@ -99,3 +99,8 @@ const input = document.getElementById('myInput')
       document.getElementById("addBtn").click();
   }
 })
+
+// Make the list sortable
+const Sortable = require ('sortablejs')
+const el = document.getElementById('myUL');
+const sortable = Sortable.create(el);
