@@ -50,7 +50,7 @@ document.getElementById("myUL").innerHTML = localStorage.getItem("storedList")
   // Click on a close button to hide the current list item
   let close = document.getElementsByClassName("close")
   for (let element of close) {
-    element.onclick = () => {
+    element.onclick = function() {
       let div = this.parentElement
       div.style.display = "none"
       localStorage.setItem("storedList", document.getElementById("myUL").innerHTML)
@@ -67,7 +67,7 @@ document.getElementById("myUL").innerHTML = localStorage.getItem("storedList")
   }, false)
 
   // Create a new list item when clicking on the "Add" button
-  var newElement = () => {
+  function newElement() {
     let li = document.createElement("li")
     let inputValue = document.getElementById("myInput").value
     let t = document.createTextNode(inputValue)
