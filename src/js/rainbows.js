@@ -87,7 +87,7 @@ document.getElementById("myUL").innerHTML = localStorage.getItem("storedList")
     li.appendChild(span)
 
     for (let element of close) {
-      element.onclick = () => {
+      element.onclick = function() {
         let div = this.parentElement
         div.style.display = "none"
       }
