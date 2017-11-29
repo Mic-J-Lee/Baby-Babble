@@ -8,6 +8,15 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
+    loaders: [
+      {
+        loader: 'babel-loader',
+        exclude: [
+          path.resolve(__dirname, 'node_modules')
+        ],
+        test: /\.jsx?$/,
+      }
+    ],
     rules: [
       {
         test: /\.scss$/,
