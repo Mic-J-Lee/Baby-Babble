@@ -1,4 +1,4 @@
-console.log('This is rainbows.js')
+// Let JS create HTML layout ====================
 
 let appDiv = document.getElementById('app')
 
