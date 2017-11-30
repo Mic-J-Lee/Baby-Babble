@@ -1,4 +1,4 @@
-// Let JS create HTML layout ====================
+// Let JS create HTML layout ==================
 
 let appDiv = document.getElementById('app')
 
@@ -21,14 +21,12 @@ myDivSpan.className = "addBtn"
 myDivSpan.addEventListener('click', addListItem)
 myDivSpan.innerHTML = "Add"
 
+let myUL = document.createElement('ul')
+myUL.setAttribute('id', 'myUL')
 
 myDiv.appendChild(myDivH2)
 myDiv.appendChild(myDivInput)
 myDiv.appendChild(myDivSpan)
-
-
-let myUL = document.createElement('ul')
-myUL.setAttribute('id', 'myUL')
 
 appDiv.appendChild(myDiv)
 appDiv.appendChild(myUL)
@@ -39,17 +37,14 @@ appDiv.appendChild(myUL)
 document.getElementById("myUL").innerHTML = localStorage.getItem("storedList")
 
 // Define list storing function
-const storeList = () => {
-  localStorage.setItem("storedList", document.getElementById("myUL").innerHTML)
-}
+const storeList = () => {localStorage.setItem("storedList", document.getElementById("myUL").innerHTML)}
 
 // Activate close buttons that remove list items
 const activateCloseButtons = () => {
   const close = document.getElementsByClassName("close")
   for (let element of close) {
     element.onclick = function() {
-      let div = this.parentElement
-      div.remove()
+      this.parentElement.remove()
       storeList()
     }
   }
@@ -93,14 +88,14 @@ list.addEventListener('click', (ev) => {
 
 // Click the "Add" button when Enter key is pressed
 const input = document.getElementById('myInput')
-  input.addEventListener("keyup", (ev) => {
+input.addEventListener("keyup", (ev) => {
   ev.preventDefault()
   if (event.keyCode === 13) {
-      document.getElementById("addBtn").click();
+      document.getElementById("addBtn").click()
   }
 })
 
 // Make the list sortable
 const Sortable = require ('sortablejs')
-const el = document.getElementById('myUL');
-const sortable = Sortable.create(el);
+const el = document.getElementById('myUL')
+const sortable = Sortable.create(el)
