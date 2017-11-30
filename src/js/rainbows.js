@@ -41,8 +41,8 @@ const storeList = () => localStorage.setItem("storedList", document.getElementBy
 
 // Activate close buttons that remove list items
 const activateCloseButtons = () => {
-  const close = document.getElementsByClassName("close")
-  for (let element of close) {
+  const closeButtons = document.getElementsByClassName("close")
+  for (let element of closeButtons) {
     element.onclick = function() {
       this.parentElement.remove()
       storeList()
@@ -56,7 +56,6 @@ function addListItem() {
   let li = document.createElement("li")
   const inputValue = document.getElementById("myInput").value
   const t = document.createTextNode(inputValue)
-
   if (inputValue === '') {
     alert("You must write something!")
   } else {
@@ -72,7 +71,6 @@ function addListItem() {
     document.getElementById("myUL").appendChild(li)
   }
   document.getElementById("myInput").value = ""
-
   activateCloseButtons()
   storeList()
 }
@@ -80,11 +78,9 @@ function addListItem() {
 // Add a "checked" symbol when clicking on a list item
 const list = document.querySelector('ul')
 list.addEventListener('click', (ev) => {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked')
-    storeList()
-  }
-}, false)
+  if (ev.target.tagName === 'LI') ev.target.classList.toggle('checked')
+  storeList()
+})
 
 // Click the "Add" button when Enter key is pressed
 const input = document.getElementById('myInput')
