@@ -37,7 +37,7 @@ appDiv.appendChild(myUL)
 document.getElementById("myUL").innerHTML = localStorage.getItem("storedList")
 
 // Define list storing function
-const storeList = () => {localStorage.setItem("storedList", document.getElementById("myUL").innerHTML)}
+const storeList = () => localStorage.setItem("storedList", document.getElementById("myUL").innerHTML)
 
 // Activate close buttons that remove list items
 const activateCloseButtons = () => {
@@ -90,9 +90,7 @@ list.addEventListener('click', (ev) => {
 const input = document.getElementById('myInput')
 input.addEventListener("keyup", (ev) => {
   ev.preventDefault()
-  if (event.keyCode === 13) {
-      document.getElementById("addBtn").click()
-  }
+  if (event.keyCode === 13) document.getElementById("addBtn").click()
 })
 
 // Make the list sortable
