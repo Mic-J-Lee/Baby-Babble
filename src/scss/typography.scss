@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
-$base-font: 'Lobster';
+$title-font: 'Lobster';
 $title-color: white;
 
 h1 {
- color: $title-color;
- font-family: $base-font;
+  margin: 10px;
+  color: $title-color;
+  font-family: $title-font;
 }

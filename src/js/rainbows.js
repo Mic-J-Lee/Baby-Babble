@@ -6,9 +6,8 @@ let myDiv = document.createElement('div')
 myDiv.className = "header"
 myDiv.setAttribute('id', 'myDiv')
 
-let myDivH2 = document.createElement('h1')
-myDivH2.style.margin = "5px"
-myDivH2.innerHTML = "My To Do List"
+let myDivH1 = document.createElement('h1')
+myDivH1.innerHTML = "My To Do List"
 
 let myDivInput = document.createElement('input')
 myDivInput.setAttribute('type', 'text')
@@ -24,7 +23,7 @@ myDivSpan.innerHTML = "Add"
 let myUL = document.createElement('ul')
 myUL.setAttribute('id', 'myUL')
 
-myDiv.appendChild(myDivH2)
+myDiv.appendChild(myDivH1)
 myDiv.appendChild(myDivInput)
 myDiv.appendChild(myDivSpan)
 
